@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RestaurantTableView.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

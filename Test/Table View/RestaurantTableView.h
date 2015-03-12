@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  RestaurantTableView.h
 //  Test
 //
 //  Created by User on 12/03/2015.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface RestaurantTableView : UITableViewController<UITableViewDelegate, UITableViewDataSource>
 
 @end
-

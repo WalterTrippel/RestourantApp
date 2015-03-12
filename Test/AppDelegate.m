@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 
+
+
 @interface AppDelegate ()
 
 @end
@@ -22,12 +24,11 @@
 {
     _window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
-    UIViewController *ctrl = [[[UIViewController alloc] init] autorelease];
-    ctrl.view.backgroundColor = [UIColor redColor];
-    
+    UINavigationController * ctrl = [[UINavigationController alloc] init];
+    RestaurantTableView * table =  [[[RestaurantTableView alloc] init] autorelease];
+    [ctrl pushViewController:table animated:YES];
     
     _window.rootViewController = ctrl;
-    [_window addSubview:ctrl.view];
     [_window makeKeyAndVisible];
     
     // Override point for customization after application launch.
