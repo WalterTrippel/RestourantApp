@@ -16,7 +16,10 @@
 
 @implementation AppDelegate
 {
-    UIWindow        *_window;
+    UINavigationController * navController;
+    MainViewController * mainController;
+    
+    UIImage * topImage;
 }
 
 
@@ -24,11 +27,16 @@
 {
     _window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
-    UINavigationController * ctrl = [[UINavigationController alloc] init];
-    RestaurantTableView * table =  [[[RestaurantTableView alloc] init] autorelease];
-    [ctrl pushViewController:table animated:YES];
+    navController = [[UINavigationController alloc] init];
+    mainController = [[MainViewController alloc] init];
     
-    _window.rootViewController = ctrl;
+    [navController pushViewController:mainController animated:YES];
+    
+    topImage = [UIImage imageNamed:@"1Res.png"];
+    [navController.navigationBar setBackgroundImage:topImage forBarMetrics:UIBarMetricsDefault];
+    navController.navigationBar.topItem.title = @"Restaurants";
+    
+    _window.rootViewController = navController;
     [_window makeKeyAndVisible];
     
     // Override point for customization after application launch.

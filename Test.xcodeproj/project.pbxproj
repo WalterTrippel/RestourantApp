@@ -11,8 +11,11 @@
 		CE3AD9F41AB19909003F7A17 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3AD9F31AB19909003F7A17 /* AppDelegate.m */; };
 		CE3AD9FC1AB19909003F7A17 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE3AD9FB1AB19909003F7A17 /* Images.xcassets */; };
 		CE3ADA0B1AB19909003F7A17 /* TestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3ADA0A1AB19909003F7A17 /* TestTests.m */; };
-		CE3ADA191AB1A078003F7A17 /* RestaurantTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3ADA181AB1A078003F7A17 /* RestaurantTableView.m */; };
 		CE3ADA1B1AB1B21B003F7A17 /* 1Res.png in Resources */ = {isa = PBXBuildFile; fileRef = CE3ADA1A1AB1B21B003F7A17 /* 1Res.png */; };
+		CE3ADA1E1AB32AB5003F7A17 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3ADA1D1AB32AB5003F7A17 /* MainViewController.m */; };
+		CE3ADA211AB32B1B003F7A17 /* MainTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3ADA201AB32B1B003F7A17 /* MainTableView.m */; };
+		CE3ADA241AB33996003F7A17 /* Restaurant.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3ADA231AB33996003F7A17 /* Restaurant.m */; };
+		CE3ADA271AB33D22003F7A17 /* RestCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3ADA261AB33D22003F7A17 /* RestCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,9 +38,15 @@
 		CE3ADA041AB19909003F7A17 /* TestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE3ADA091AB19909003F7A17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE3ADA0A1AB19909003F7A17 /* TestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestTests.m; sourceTree = "<group>"; };
-		CE3ADA171AB1A078003F7A17 /* RestaurantTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RestaurantTableView.h; path = "Test/Table View/RestaurantTableView.h"; sourceTree = "<group>"; };
-		CE3ADA181AB1A078003F7A17 /* RestaurantTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RestaurantTableView.m; path = "Test/Table View/RestaurantTableView.m"; sourceTree = "<group>"; };
 		CE3ADA1A1AB1B21B003F7A17 /* 1Res.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1Res.png; sourceTree = "<group>"; };
+		CE3ADA1C1AB32AB5003F7A17 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		CE3ADA1D1AB32AB5003F7A17 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		CE3ADA1F1AB32B1B003F7A17 /* MainTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTableView.h; sourceTree = "<group>"; };
+		CE3ADA201AB32B1B003F7A17 /* MainTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTableView.m; sourceTree = "<group>"; };
+		CE3ADA221AB33996003F7A17 /* Restaurant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Restaurant.h; sourceTree = "<group>"; };
+		CE3ADA231AB33996003F7A17 /* Restaurant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Restaurant.m; sourceTree = "<group>"; };
+		CE3ADA251AB33D22003F7A17 /* RestCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestCell.h; sourceTree = "<group>"; };
+		CE3ADA261AB33D22003F7A17 /* RestCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,8 +70,6 @@
 		CE3AD9E21AB19909003F7A17 = {
 			isa = PBXGroup;
 			children = (
-				CE3ADA171AB1A078003F7A17 /* RestaurantTableView.h */,
-				CE3ADA181AB1A078003F7A17 /* RestaurantTableView.m */,
 				CE3AD9ED1AB19909003F7A17 /* Test */,
 				CE3ADA071AB19909003F7A17 /* TestTests */,
 				CE3AD9EC1AB19909003F7A17 /* Products */,
@@ -84,6 +91,14 @@
 			children = (
 				CE3AD9F21AB19909003F7A17 /* AppDelegate.h */,
 				CE3AD9F31AB19909003F7A17 /* AppDelegate.m */,
+				CE3ADA221AB33996003F7A17 /* Restaurant.h */,
+				CE3ADA231AB33996003F7A17 /* Restaurant.m */,
+				CE3ADA1F1AB32B1B003F7A17 /* MainTableView.h */,
+				CE3ADA201AB32B1B003F7A17 /* MainTableView.m */,
+				CE3ADA1C1AB32AB5003F7A17 /* MainViewController.h */,
+				CE3ADA1D1AB32AB5003F7A17 /* MainViewController.m */,
+				CE3ADA251AB33D22003F7A17 /* RestCell.h */,
+				CE3ADA261AB33D22003F7A17 /* RestCell.m */,
 				CE3AD9FB1AB19909003F7A17 /* Images.xcassets */,
 				CE3AD9EE1AB19909003F7A17 /* Supporting Files */,
 			);
@@ -215,9 +230,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE3ADA191AB1A078003F7A17 /* RestaurantTableView.m in Sources */,
 				CE3AD9F41AB19909003F7A17 /* AppDelegate.m in Sources */,
+				CE3ADA241AB33996003F7A17 /* Restaurant.m in Sources */,
 				CE3AD9F11AB19909003F7A17 /* main.m in Sources */,
+				CE3ADA211AB32B1B003F7A17 /* MainTableView.m in Sources */,
+				CE3ADA1E1AB32AB5003F7A17 /* MainViewController.m in Sources */,
+				CE3ADA271AB33D22003F7A17 /* RestCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -393,6 +411,7 @@
 				CE3ADA101AB19909003F7A17 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CE3ADA111AB19909003F7A17 /* Build configuration list for PBXNativeTarget "TestTests" */ = {
 			isa = XCConfigurationList;
@@ -401,6 +420,7 @@
 				CE3ADA131AB19909003F7A17 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
