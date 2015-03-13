@@ -47,14 +47,16 @@
     [super layoutSubviews];
     CGRect contentRect = self.contentView.bounds;
     CGFloat boundsX = contentRect.origin.x;
+    CGFloat boundsY = contentRect.origin.y;
+    
     CGRect frame;
-    frame= CGRectMake(boundsX+10 ,0, 50, 50);
+    frame = CGRectMake(contentRect.size.width * 0.05, 0, contentRect.size.width * 0.15, contentRect.size.height);
     cellsImage.frame = frame;
     
-    frame= CGRectMake(boundsX+70 ,5, 200, 25);
+    frame = CGRectMake(boundsX + 70, 5, 200, 25);
     primaryLabel.frame = frame;
     
-    frame= CGRectMake(boundsX+70 ,30, 100, 15);
+    frame = CGRectMake(boundsX + 70, 30, 100, 15);
     secondaryLabel.frame = frame;
 
 }

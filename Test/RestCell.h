@@ -16,7 +16,7 @@
 }
 
 @property(nonatomic, retain)UILabel * primaryLabel;
-@property(nonatomic, retain)UILabel *secondaryLabel;
+@property(nonatomic, retain)UILabel * secondaryLabel;
 @property(nonatomic, retain)UIImageView * cellsImage;
 
 
