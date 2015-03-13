@@ -53,7 +53,7 @@
     frame = CGRectMake(contentRect.size.width * 0.05, 0, contentRect.size.width * 0.15, contentRect.size.height);
     cellsImage.frame = frame;
     
-    frame = CGRectMake(boundsX + 70, 5, 200, 25);
+    frame = CGRectMake(boundsX + contentRect.size.width * 0.25, 3, contentRect.size.width * 0.5, contentRect.size.height);
     primaryLabel.frame = frame;
     
     frame = CGRectMake(boundsX + 70, 30, 100, 15);

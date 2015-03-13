@@ -10,7 +10,6 @@
 
 @implementation MainTableView
 {
-    UIImage * topImage;
 }
 
 -(id)init

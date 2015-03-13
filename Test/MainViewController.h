@@ -14,6 +14,6 @@
 @interface MainViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 
 @property(strong) MainTableView * table;
-@property(strong, retain) NSArray * data;
+@property(nonatomic, strong) NSArray * data;
 
 @end

@@ -21,6 +21,7 @@
     
     _table = [[MainTableView alloc] init];
     _table.frame = self.view.bounds;
+
     _data = @[@"First", @"First", @"First", @"First", @"First", @"First", @"First", @"First", @"First"];
     
     [self.view addSubview:_table];
@@ -54,7 +55,10 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
 
-    cell.primaryLabel.text = [_data objectAtIndex:indexPath.row];
+    if(_data.count > [indexPath row])
+    {
+        cell.primaryLabel.text = [_data objectAtIndex:indexPath.row];
+    }
 
     NSString * path = [[NSBundle mainBundle] pathForResource:@"1Res" ofType:@"png"];
     UIImage * theImage = [UIImage imageWithContentsOfFile:path];
