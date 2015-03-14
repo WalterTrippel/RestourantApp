@@ -1,14 +1,14 @@
 //
-//  RestCell.m
+//  SpecificCell.m
 //  Test
 //
-//  Created by User on 13/03/2015.
+//  Created by Admin on 14.03.15.
 //  Copyright (c) 2015 User. All rights reserved.
 //
 
-#import "RestCell.h"
+#import "SpecificCell.h"
 
-@implementation RestCell
+@implementation SpecificCell
 
 @synthesize primaryLabel, secondaryLabel, cellsImage;
 
@@ -30,15 +30,24 @@
     return self;
 }
 
-- (void)awakeFromNib {
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+{
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    if (self) {
+        // Initialization code
+    }
+    return self;
+}
+
+- (void)awakeFromNib
+{
     // Initialization code
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated
+{
     [super setSelected:selected animated:animated];
 
-    
-    
     // Configure the view for the selected state
 }
 
@@ -57,7 +66,8 @@
     
     frame = CGRectMake(boundsX + 70, 30, 100, 15);
     secondaryLabel.frame = frame;
-
+    
 }
+
 
 @end

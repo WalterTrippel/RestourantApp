@@ -9,11 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "MainTableView.h"
 #include "RestCell.h"
+#include "SpecificViewController.h"
 
 
 @interface MainViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 
-@property(strong) MainTableView * table;
-@property(nonatomic, strong) NSArray * data;
+@property(nonatomic, strong) MainTableView * table;
+@property(atomic, strong) NSMutableArray * data;
 
 @end

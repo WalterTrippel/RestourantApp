@@ -1,0 +1,108 @@
+//
+//  SpecificViewController.m
+//  Test
+//
+//  Created by Admin on 14.03.15.
+//  Copyright (c) 2015 User. All rights reserved.
+//
+
+#import "SpecificViewController.h"
+#include "MainViewController.h"
+
+@interface SpecificViewController ()
+
+@end
+
+@implementation SpecificViewController
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+        
+        _table = [[MainTableView alloc] init];
+        _table.frame = self.view.bounds;
+        
+        [self.view addSubview:_table];
+        
+        NSString * backArrayString = @"\U000025C0\U0000FE0E";
+        UIBarButtonItem * delButton = [[UIBarButtonItem alloc] initWithTitle:backArrayString style:UIBarButtonItemStylePlain target:self action:@selector(delItemFromArray)];
+        self.navigationItem.leftBarButtonItem = delButton;
+        [delButton release];
+        
+        [_table setDelegate:self];
+        [_table setDataSource:self];
+    }
+    return self;
+}
+
+- (void) delItemFromArray{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
+    
+    _data = [NSMutableArray arrayWithObjects:@"Second", @"Second", @"Second", @"Second", @"Second", @"Second", @"Second", @"Second", @"Second", nil];
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [_data count];
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    _data = [NSMutableArray arrayWithObjects:@"Second", @"Second", @"Second", @"Second", @"Second", @"Second", @"Second", @"Second", @"Second", nil];
+    
+    static NSString * cellIdentifier = @"MyCell";
+    
+    SpecificCell * cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    
+    if(cell == nil)
+    {
+        cell = [[[SpecificCell alloc] initWithFrame:CGRectZero reuseIdentifier:cellIdentifier] autorelease];
+        
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    }
+    
+    if(_data.count > [indexPath row])
+    {
+        cell.primaryLabel.text = [_data objectAtIndex:indexPath.row];
+    }
+    
+    NSString * path = [[NSBundle mainBundle] pathForResource:@"1Res" ofType:@"png"];
+    UIImage * theImage = [UIImage imageWithContentsOfFile:path];
+    
+    cell.cellsImage.image = theImage;
+    
+    return cell;
+    
+}
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
+
+@end

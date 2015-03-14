@@ -22,7 +22,7 @@
     _table = [[MainTableView alloc] init];
     _table.frame = self.view.bounds;
 
-    _data = @[@"First", @"First", @"First", @"First", @"First", @"First", @"First", @"First", @"First"];
+    _data = [NSMutableArray arrayWithObjects:@"First", @"First", @"First", @"First", @"First", @"First", @"First", @"First", @"First", nil];
     
     [self.view addSubview:_table];
     
@@ -42,8 +42,17 @@
     return [_data count];
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    /** Need to fetch some data from DB */
+    SpecificViewController * specController = [[SpecificViewController alloc] init];
+    [self.navigationController pushViewController:specController animated:YES];
+}
+
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    _data = [NSMutableArray arrayWithObjects:@"First", @"First", @"First", @"First", @"First", @"First", @"First", @"First", @"First", nil];
+    
     static NSString * cellIdentifier = @"MyCell";
     
     RestCell * cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];

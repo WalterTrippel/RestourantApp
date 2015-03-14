@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		84A0A74C1AB426A8000BBA13 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84A0A74B1AB426A8000BBA13 /* Default-568h@2x.png */; };
+		84A300AF1AB4435B00F0CE8A /* SpecificViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A300AE1AB4435B00F0CE8A /* SpecificViewController.m */; };
+		84A300B21AB4449700F0CE8A /* SpecificCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A300B11AB4449700F0CE8A /* SpecificCell.m */; };
 		CE3AD9F11AB19909003F7A17 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3AD9F01AB19909003F7A17 /* main.m */; };
 		CE3AD9F41AB19909003F7A17 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3AD9F31AB19909003F7A17 /* AppDelegate.m */; };
 		CE3AD9FC1AB19909003F7A17 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE3AD9FB1AB19909003F7A17 /* Images.xcassets */; };
@@ -29,6 +32,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		84A0A74B1AB426A8000BBA13 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		84A300AD1AB4435B00F0CE8A /* SpecificViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecificViewController.h; sourceTree = "<group>"; };
+		84A300AE1AB4435B00F0CE8A /* SpecificViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecificViewController.m; sourceTree = "<group>"; };
+		84A300B01AB4449700F0CE8A /* SpecificCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecificCell.h; sourceTree = "<group>"; };
+		84A300B11AB4449700F0CE8A /* SpecificCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecificCell.m; sourceTree = "<group>"; };
 		CE3AD9EB1AB19909003F7A17 /* Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE3AD9EF1AB19909003F7A17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE3AD9F01AB19909003F7A17 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -70,6 +78,7 @@
 		CE3AD9E21AB19909003F7A17 = {
 			isa = PBXGroup;
 			children = (
+				84A0A74B1AB426A8000BBA13 /* Default-568h@2x.png */,
 				CE3AD9ED1AB19909003F7A17 /* Test */,
 				CE3ADA071AB19909003F7A17 /* TestTests */,
 				CE3AD9EC1AB19909003F7A17 /* Products */,
@@ -97,8 +106,12 @@
 				CE3ADA201AB32B1B003F7A17 /* MainTableView.m */,
 				CE3ADA1C1AB32AB5003F7A17 /* MainViewController.h */,
 				CE3ADA1D1AB32AB5003F7A17 /* MainViewController.m */,
+				84A300AD1AB4435B00F0CE8A /* SpecificViewController.h */,
+				84A300AE1AB4435B00F0CE8A /* SpecificViewController.m */,
 				CE3ADA251AB33D22003F7A17 /* RestCell.h */,
 				CE3ADA261AB33D22003F7A17 /* RestCell.m */,
+				84A300B01AB4449700F0CE8A /* SpecificCell.h */,
+				84A300B11AB4449700F0CE8A /* SpecificCell.m */,
 				CE3AD9FB1AB19909003F7A17 /* Images.xcassets */,
 				CE3AD9EE1AB19909003F7A17 /* Supporting Files */,
 			);
@@ -213,6 +226,7 @@
 			files = (
 				CE3ADA1B1AB1B21B003F7A17 /* 1Res.png in Resources */,
 				CE3AD9FC1AB19909003F7A17 /* Images.xcassets in Resources */,
+				84A0A74C1AB426A8000BBA13 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -233,9 +247,11 @@
 				CE3AD9F41AB19909003F7A17 /* AppDelegate.m in Sources */,
 				CE3ADA241AB33996003F7A17 /* Restaurant.m in Sources */,
 				CE3AD9F11AB19909003F7A17 /* main.m in Sources */,
+				84A300AF1AB4435B00F0CE8A /* SpecificViewController.m in Sources */,
 				CE3ADA211AB32B1B003F7A17 /* MainTableView.m in Sources */,
 				CE3ADA1E1AB32AB5003F7A17 /* MainViewController.m in Sources */,
 				CE3ADA271AB33D22003F7A17 /* RestCell.m in Sources */,
+				84A300B21AB4449700F0CE8A /* SpecificCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,6 +358,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_ARC = NO;
 				INFOPLIST_FILE = Test/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -353,6 +370,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_ARC = NO;
 				INFOPLIST_FILE = Test/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -371,6 +389,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = TestTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Test.app/Test";
@@ -386,6 +405,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = TestTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Test.app/Test";
