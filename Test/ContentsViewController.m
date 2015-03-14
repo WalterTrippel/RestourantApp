@@ -1,27 +1,25 @@
 //
-//  SpecificViewController.m
+//  ContentsViewController.m
 //  Test
 //
 //  Created by Admin on 14.03.15.
 //  Copyright (c) 2015 User. All rights reserved.
 //
 
-#import "SpecificViewController.h"
-#include "MainViewController.h"
-#include "ContentsViewController.h"
+#import "ContentsViewController.h"
+#import "SpecificCell.h"
 
-@interface SpecificViewController ()
+@interface ContentsViewController ()
 
 @end
 
-@implementation SpecificViewController
+@implementation ContentsViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        
         _table = [[MainTableView alloc] init];
         _table.frame = self.view.bounds;
         
@@ -32,7 +30,7 @@
         self.navigationItem.leftBarButtonItem = delButton;
         [delButton release];
         
-        self.navigationItem.title = @"Menu";
+        self.navigationItem.title = @"Contents";
         
         [_table setDelegate:self];
         [_table setDataSource:self];
@@ -48,8 +46,12 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
     _data = [NSMutableArray arrayWithObjects:@"Second", @"Second", @"Second", @"Second", @"Second", @"Second", @"Second", @"Second", @"Second", nil];
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -63,15 +65,9 @@
     return [_data count];
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    ContentsViewController * contController = [[ContentsViewController alloc] init];
-    [self.navigationController pushViewController:contController animated:YES];
-}
-
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    _data = [NSMutableArray arrayWithObjects:@"Second", @"Second", @"Second", @"Second", @"Second", @"Second", @"Second", @"Second", @"Second", nil];
+    _data = [NSMutableArray arrayWithObjects:@"Third", @"Third", @"Third", @"Third", @"Third", @"Third", @"Third", @"Third", @"Third", nil];
     
     static NSString * cellIdentifier = @"MyCell";
     
@@ -95,7 +91,29 @@
     cell.cellsImage.image = theImage;
     
     return cell;
-    
+}
+
+- (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView didHighlightRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    SpecificCell * cell = (SpecificCell *)[_table cellForRowAtIndexPath:indexPath];
+    [self setCellColor:[UIColor blueColor] ForCell:cell];
+}
+
+- (void)tableView:(UITableView *)tableView didUnhighlightRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    SpecificCell * cell = (SpecificCell *)[_table cellForRowAtIndexPath:indexPath];
+    [self setCellColor:[UIColor whiteColor] ForCell:cell];
+}
+
+- (void)setCellColor:(UIColor *)color ForCell:(UITableViewCell *)cell
+{
+    cell.contentView.backgroundColor = color;
+    cell.backgroundColor = color;
 }
 
 /*

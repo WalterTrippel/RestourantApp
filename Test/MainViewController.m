@@ -22,11 +22,17 @@
     _table = [[MainTableView alloc] init];
     _table.frame = self.view.bounds;
 
-    _data = [NSMutableArray arrayWithObjects:@"First", @"First", @"First", @"First", @"First", @"First", @"First", @"First", @"First", nil];
+    _data = [NSMutableArray arrayWithObjects:@"First", @"First", @"First", @"First", @"First", @"First", @"First", @"First", @"First", @"First", @"First", @"First", nil];
     
     [self.view addSubview:_table];
     
+    _allButton = [[[AllRestaurantButton alloc] init] autorelease];
+    _allButton.frame = CGRectMake(0, self.view.bounds.size.height * 0.75, self.view.bounds.size.width * 0.5, self.view.bounds.size.height * 0.14);
+    [self.view addSubview:_allButton];
     
+    _specButton = [[[SpecificRestaurantButton alloc] init] autorelease];
+    _specButton.frame = CGRectMake(self.view.bounds.size.width * 0.5, self.view.bounds.size.height * 0.75, self.view.bounds.size.width * 0.5, self.view.bounds.size.height * 0.14);
+    [self.view addSubview:_specButton];
     
     [_table setDelegate:self];
     [_table setDataSource:self];
@@ -51,7 +57,7 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    _data = [NSMutableArray arrayWithObjects:@"First", @"First", @"First", @"First", @"First", @"First", @"First", @"First", @"First", nil];
+    _data = [NSMutableArray arrayWithObjects:@"First", @"First", @"First", @"First", @"First", @"First", @"First", @"First", @"First", @"First", @"First", @"First", nil];
     
     static NSString * cellIdentifier = @"MyCell";
     
@@ -64,10 +70,7 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
 
-    if(_data.count > [indexPath row])
-    {
-        cell.primaryLabel.text = [_data objectAtIndex:indexPath.row];
-    }
+    cell.primaryLabel.text = [_data objectAtIndex:indexPath.row];
 
     NSString * path = [[NSBundle mainBundle] pathForResource:@"1Res" ofType:@"png"];
     UIImage * theImage = [UIImage imageWithContentsOfFile:path];

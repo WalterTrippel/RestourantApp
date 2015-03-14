@@ -8,13 +8,17 @@
 
 #import <UIKit/UIKit.h>
 #import "MainTableView.h"
-#include "RestCell.h"
-#include "SpecificViewController.h"
+#import "RestCell.h"
+#import "SpecificViewController.h"
+#import "AllRestaurantButton.h"
+#import "SpecificRestaurantButton.h"
 
 
 @interface MainViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 
 @property(nonatomic, strong) MainTableView * table;
 @property(atomic, strong) NSMutableArray * data;
+@property(nonatomic, strong) AllRestaurantButton * allButton;
+@property(nonatomic, strong) SpecificRestaurantButton * specButton;
 
 @end
