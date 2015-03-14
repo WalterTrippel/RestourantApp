@@ -15,7 +15,16 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        self.backgroundColor = [UIColor orangeColor];
+        UIImage * backgroundIm = [UIImage imageNamed:@"like.png"];
+        [self setImage:backgroundIm forState:UIControlStateNormal];
+        
+        CGFloat top = self.imageView.image.size.height * 0.5;
+        CGFloat left = self.imageView.image.size.width * 0.5;
+        CGFloat bottom = self.imageView.image.size.height * 0.5;
+        CGFloat right = self.imageView.image.size.width * 0.5;
+        self.imageEdgeInsets = UIEdgeInsetsMake(top, left, bottom, right);
+        
+        
     }
     return self;
 }

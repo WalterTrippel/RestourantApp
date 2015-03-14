@@ -80,10 +80,8 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     
-    if(_data.count > [indexPath row])
-    {
-        cell.primaryLabel.text = [_data objectAtIndex:indexPath.row];
-    }
+    cell.primaryLabel.text = [_data objectAtIndex:indexPath.row];
+    
     
     NSString * path = [[NSBundle mainBundle] pathForResource:@"1Res" ofType:@"png"];
     UIImage * theImage = [UIImage imageWithContentsOfFile:path];
@@ -101,7 +99,7 @@
 - (void)tableView:(UITableView *)tableView didHighlightRowAtIndexPath:(NSIndexPath *)indexPath
 {
     SpecificCell * cell = (SpecificCell *)[_table cellForRowAtIndexPath:indexPath];
-    [self setCellColor:[UIColor blueColor] ForCell:cell];
+    [self setCellColor:[UIColor colorWithRed:0.0 green:(239 / 255.0) blue:1.0 alpha:1] ForCell:cell];
 }
 
 - (void)tableView:(UITableView *)tableView didUnhighlightRowAtIndexPath:(NSIndexPath *)indexPath

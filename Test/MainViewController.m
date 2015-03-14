@@ -8,11 +8,48 @@
 
 #import "MainViewController.h"
 
+
 @interface MainViewController ()
 
 @end
 
 @implementation MainViewController
+{
+    UISearchBar * searchBar;
+    NSArray * resultSearch;
+}
+
+-(BOOL)searchBar:(UISearchBar *)searchBar shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+    [self filterContentForSearchText:text scope:[[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:[self.searchDisplayController.searchBar selectedScopeButtonIndex]]];
+    return YES;
+}
+
+-(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
+{
+
+    return YES;
+}
+
+-(void)filterContentForSearchText:(NSString *)searchText scope:(NSString *)scope
+{
+    NSPredicate * resultPredicate = [NSPredicate predicateWithFormat:@"name contains[c] %@", searchText];
+    _data = [NSMutableArray arrayWithObjects:[[Restaurant alloc] initWithCode:@"1" name:@"KFC"], [[Restaurant alloc] initWithCode:@"2" name:@"McDonalds"], [[Restaurant alloc] initWithCode:@"3" name:@"BurgerKing"], [[Restaurant alloc] initWithCode:@"4" name:@"CurryWurst"], nil];
+    resultSearch = [_data filteredArrayUsingPredicate:resultPredicate];
+    [_table reloadData];
+}
+
+-(void) onClickAll
+{
+    _specButton.backgroundColor = [UIColor colorWithWhite:0.8 alpha:0.98];
+    _allButton.backgroundColor = [UIColor colorWithRed:0.0 green:(239 / 255.0) blue:1.0 alpha:1];
+}
+
+-(void) onClickSpec
+{
+    _allButton.backgroundColor = [UIColor colorWithWhite:0.8 alpha:0.98];
+    _specButton.backgroundColor = [UIColor colorWithRed:0.0 green:(239 / 255.0) blue:1.0 alpha:1];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -22,17 +59,28 @@
     _table = [[MainTableView alloc] init];
     _table.frame = self.view.bounds;
 
-    _data = [NSMutableArray arrayWithObjects:@"First", @"First", @"First", @"First", @"First", @"First", @"First", @"First", @"First", @"First", @"First", @"First", nil];
+    _data = [NSMutableArray arrayWithObjects:[[Restaurant alloc] initWithCode:@"1" name:@"KFC"], [[Restaurant alloc] initWithCode:@"2" name:@"McDonalds"], [[Restaurant alloc] initWithCode:@"3" name:@"BurgerKing"], [[Restaurant alloc] initWithCode:@"4" name:@"CurryWurst"], nil];
     
     [self.view addSubview:_table];
-    
     _allButton = [[[AllRestaurantButton alloc] init] autorelease];
     _allButton.frame = CGRectMake(0, self.view.bounds.size.height * 0.75, self.view.bounds.size.width * 0.5, self.view.bounds.size.height * 0.14);
     [self.view addSubview:_allButton];
+    [_allButton addTarget:self action:@selector(onClickAll) forControlEvents:UIControlEventTouchDown];
     
     _specButton = [[[SpecificRestaurantButton alloc] init] autorelease];
     _specButton.frame = CGRectMake(self.view.bounds.size.width * 0.5, self.view.bounds.size.height * 0.75, self.view.bounds.size.width * 0.5, self.view.bounds.size.height * 0.14);
     [self.view addSubview:_specButton];
+    [_specButton addTarget:self action:@selector(onClickSpec) forControlEvents:UIControlEventTouchDown];
+    
+    /** fires all restaurants button */
+    [_allButton sendActionsForControlEvents:UIControlEventTouchDown];
+    self.searchDisplayController.displaysSearchBarInNavigationBar = YES;
+    
+    resultSearch = [[NSArray alloc] init];
+    searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 0, self.view.bounds.size.height * 0.1)];
+    [searchBar setDelegate:self];
+    _table.tableHeaderView = searchBar;
+    
     
     [_table setDelegate:self];
     [_table setDataSource:self];
@@ -45,7 +93,14 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [_data count];
+    if(_table == self.searchDisplayController.searchResultsTableView)
+    {
+        return [resultSearch count];
+    }
+    else
+    {
+        return [_data count];
+    }
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -57,8 +112,8 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    _data = [NSMutableArray arrayWithObjects:@"First", @"First", @"First", @"First", @"First", @"First", @"First", @"First", @"First", @"First", @"First", @"First", nil];
-    
+    _data = [NSMutableArray arrayWithObjects:[[Restaurant alloc] initWithCode:@"1" name:@"KFC"], [[Restaurant alloc] initWithCode:@"2" name:@"McDonalds"], [[Restaurant alloc] initWithCode:@"3" name:@"BurgerKing"], [[Restaurant alloc] initWithCode:@"4" name:@"CurryWurst"], nil];
+    NSLog(@"UPDATED");
     static NSString * cellIdentifier = @"MyCell";
     
     RestCell * cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
@@ -69,8 +124,19 @@
         
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
+    
+    Restaurant * title = nil;
+    
+    if(resultSearch.count > 0)
+    {
+        title = [resultSearch objectAtIndex:indexPath.row];
+    }
+    else
+    {
+        title = [_data objectAtIndex:indexPath.row];
+    }
 
-    cell.primaryLabel.text = [_data objectAtIndex:indexPath.row];
+    cell.primaryLabel.text = title.name;
 
     NSString * path = [[NSBundle mainBundle] pathForResource:@"1Res" ofType:@"png"];
     UIImage * theImage = [UIImage imageWithContentsOfFile:path];

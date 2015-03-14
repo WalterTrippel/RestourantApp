@@ -49,7 +49,7 @@
     [super setSelected:selected animated:animated];
     
     UIView * selectedBackgroundView = [[UIView alloc] init];
-    [selectedBackgroundView setBackgroundColor:[UIColor blueColor]];
+    [selectedBackgroundView setBackgroundColor:[UIColor colorWithRed:0.0 green:(239 / 255.0) blue:1.0 alpha:1]];
     [self setSelectedBackgroundView:selectedBackgroundView];
 }
 

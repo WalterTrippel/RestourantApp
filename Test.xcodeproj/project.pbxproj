@@ -13,6 +13,7 @@
 		84A300B51AB4600900F0CE8A /* ContentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A300B41AB4600900F0CE8A /* ContentsViewController.m */; };
 		84A300BB1AB4711C00F0CE8A /* AllRestaurantButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A300BA1AB4711C00F0CE8A /* AllRestaurantButton.m */; };
 		84A300BE1AB4798300F0CE8A /* SpecificRestaurantButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A300BD1AB4798300F0CE8A /* SpecificRestaurantButton.m */; };
+		84A300C01AB4945900F0CE8A /* like.png in Resources */ = {isa = PBXBuildFile; fileRef = 84A300BF1AB4945900F0CE8A /* like.png */; };
 		CE3AD9F11AB19909003F7A17 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3AD9F01AB19909003F7A17 /* main.m */; };
 		CE3AD9F41AB19909003F7A17 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3AD9F31AB19909003F7A17 /* AppDelegate.m */; };
 		CE3AD9FC1AB19909003F7A17 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE3AD9FB1AB19909003F7A17 /* Images.xcassets */; };
@@ -46,6 +47,7 @@
 		84A300BA1AB4711C00F0CE8A /* AllRestaurantButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllRestaurantButton.m; sourceTree = "<group>"; };
 		84A300BC1AB4798300F0CE8A /* SpecificRestaurantButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecificRestaurantButton.h; sourceTree = "<group>"; };
 		84A300BD1AB4798300F0CE8A /* SpecificRestaurantButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecificRestaurantButton.m; sourceTree = "<group>"; };
+		84A300BF1AB4945900F0CE8A /* like.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = like.png; sourceTree = "<group>"; };
 		CE3AD9EB1AB19909003F7A17 /* Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE3AD9EF1AB19909003F7A17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE3AD9F01AB19909003F7A17 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -55,7 +57,7 @@
 		CE3ADA041AB19909003F7A17 /* TestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE3ADA091AB19909003F7A17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE3ADA0A1AB19909003F7A17 /* TestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestTests.m; sourceTree = "<group>"; };
-		CE3ADA1A1AB1B21B003F7A17 /* 1Res.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1Res.png; sourceTree = "<group>"; };
+		CE3ADA1A1AB1B21B003F7A17 /* 1Res.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 1Res.png; path = ../1Res.png; sourceTree = "<group>"; };
 		CE3ADA1C1AB32AB5003F7A17 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		CE3ADA1D1AB32AB5003F7A17 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		CE3ADA1F1AB32B1B003F7A17 /* MainTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTableView.h; sourceTree = "<group>"; };
@@ -95,7 +97,6 @@
 				CE3AD9ED1AB19909003F7A17 /* Test */,
 				CE3ADA071AB19909003F7A17 /* TestTests */,
 				CE3AD9EC1AB19909003F7A17 /* Products */,
-				CE3ADA1A1AB1B21B003F7A17 /* 1Res.png */,
 			);
 			sourceTree = "<group>";
 		};
@@ -137,6 +138,8 @@
 			isa = PBXGroup;
 			children = (
 				CE3AD9EF1AB19909003F7A17 /* Info.plist */,
+				84A300BF1AB4945900F0CE8A /* like.png */,
+				CE3ADA1A1AB1B21B003F7A17 /* 1Res.png */,
 				CE3AD9F01AB19909003F7A17 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -239,6 +242,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84A300C01AB4945900F0CE8A /* like.png in Resources */,
 				CE3ADA1B1AB1B21B003F7A17 /* 1Res.png in Resources */,
 				CE3AD9FC1AB19909003F7A17 /* Images.xcassets in Resources */,
 				84A0A74C1AB426A8000BBA13 /* Default-568h@2x.png in Resources */,

@@ -15,6 +15,9 @@
 -(id)init
 {
     [super init];
+    if(self)
+    {
+    }
 
     return self;
 }

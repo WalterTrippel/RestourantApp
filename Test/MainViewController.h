@@ -12,9 +12,10 @@
 #import "SpecificViewController.h"
 #import "AllRestaurantButton.h"
 #import "SpecificRestaurantButton.h"
+#import "Restaurant.h"
 
 
-@interface MainViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+@interface MainViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate>
 
 @property(nonatomic, strong) MainTableView * table;
 @property(atomic, strong) NSMutableArray * data;

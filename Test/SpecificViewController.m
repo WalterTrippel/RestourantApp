@@ -16,6 +16,29 @@
 
 @implementation SpecificViewController
 
+-(void) onClickAll
+{
+    _specButton.backgroundColor = [UIColor colorWithWhite:0.8 alpha:0.98];
+    _allButton.backgroundColor = [UIColor colorWithRed:0.0 green:(239 / 255.0) blue:1.0 alpha:1];
+}
+
+-(void) onClickSpec
+{
+    _allButton.backgroundColor = [UIColor colorWithWhite:0.8 alpha:0.98];
+    _specButton.backgroundColor = [UIColor colorWithRed:0.0 green:(239 / 255.0) blue:1.0 alpha:1];
+}
+
+-(void) likeAction
+{
+    UIBarButtonItem * likeButton = [[UIBarButtonItem alloc] initWithTitle:@"\u2605" style:UIBarButtonItemStylePlain target:self action:nil];
+    self.navigationItem.rightBarButtonItem = likeButton;
+    [likeButton release];
+    
+    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Restaurant is marked." message:@"It will be stored at the liked ones." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alert show];
+    [alert release];
+}
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -32,7 +55,25 @@
         self.navigationItem.leftBarButtonItem = delButton;
         [delButton release];
         
+        UIBarButtonItem * likeButton = [[UIBarButtonItem alloc] initWithTitle:@"\u2606" style:UIBarButtonItemStylePlain target:self action:@selector(likeAction)];
+        self.navigationItem.rightBarButtonItem = likeButton;
+        [likeButton release];
+        
         self.navigationItem.title = @"Menu";
+        
+        [self.view addSubview:_table];
+        _allButton = [[[AllRestaurantButton alloc] init] autorelease];
+        _allButton.frame = CGRectMake(0, self.view.bounds.size.height * 0.75, self.view.bounds.size.width * 0.5, self.view.bounds.size.height * 0.14);
+        [self.view addSubview:_allButton];
+        [_allButton addTarget:self action:@selector(onClickAll) forControlEvents:UIControlEventTouchDown];
+        
+        _specButton = [[[SpecificRestaurantButton alloc] init] autorelease];
+        _specButton.frame = CGRectMake(self.view.bounds.size.width * 0.5, self.view.bounds.size.height * 0.75, self.view.bounds.size.width * 0.5, self.view.bounds.size.height * 0.14);
+        [self.view addSubview:_specButton];
+        [_specButton addTarget:self action:@selector(onClickSpec) forControlEvents:UIControlEventTouchDown];
+        
+        /** fires all restaurants button */
+        [_allButton sendActionsForControlEvents:UIControlEventTouchDown];
         
         [_table setDelegate:self];
         [_table setDataSource:self];
@@ -84,10 +125,7 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     
-    if(_data.count > [indexPath row])
-    {
-        cell.primaryLabel.text = [_data objectAtIndex:indexPath.row];
-    }
+    cell.primaryLabel.text = [_data objectAtIndex:indexPath.row];
     
     NSString * path = [[NSBundle mainBundle] pathForResource:@"1Res" ofType:@"png"];
     UIImage * theImage = [UIImage imageWithContentsOfFile:path];

@@ -31,6 +31,9 @@
     _topImage = [UIImage imageNamed:@"1Res.png"];
     [_navController.navigationBar setBackgroundImage:_topImage forBarMetrics:UIBarMetricsDefault];
     _navController.navigationBar.topItem.title = @"Restaurants";
+    UISearchBar * searchBar = [[UISearchBar alloc] init];
+    searchBar.bounds = _navController.navigationItem.titleView.bounds;
+    [_navController.navigationItem.titleView addSubview:searchBar];
     
     _window.rootViewController = _navController;
     [_window makeKeyAndVisible];
