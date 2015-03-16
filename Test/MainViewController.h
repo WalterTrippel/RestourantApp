@@ -13,12 +13,13 @@
 #import "AllRestaurantButton.h"
 #import "SpecificRestaurantButton.h"
 #import "Restaurant.h"
+#import "SQLManager.h"
 
 
 @interface MainViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate>
 
 @property(nonatomic, strong) MainTableView * table;
-@property(atomic, strong) NSMutableArray * data;
+@property(nonatomic, strong) NSMutableArray * data;
 @property(nonatomic, strong) AllRestaurantButton * allButton;
 @property(nonatomic, strong) SpecificRestaurantButton * specButton;
 

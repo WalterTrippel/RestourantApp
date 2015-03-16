@@ -15,6 +15,9 @@
 @end
 
 @implementation SpecificViewController
+{
+    NSUInteger arraySize;
+}
 
 -(void) onClickAll
 {
@@ -75,6 +78,9 @@
         /** fires all restaurants button */
         [_allButton sendActionsForControlEvents:UIControlEventTouchDown];
         
+        /** stubby stub */
+        arraySize = [_data count];
+        
         [_table setDelegate:self];
         [_table setDataSource:self];
     }
@@ -101,7 +107,7 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [_data count];
+    return arraySize;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

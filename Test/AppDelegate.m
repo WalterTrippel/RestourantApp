@@ -38,10 +38,10 @@
     _window.rootViewController = _navController;
     [_window makeKeyAndVisible];
     
+    
     // Override point for customization after application launch.
     return YES;
 }
-
 
 - (void)dealloc
 {

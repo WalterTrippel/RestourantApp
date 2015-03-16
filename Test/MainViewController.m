@@ -17,6 +17,8 @@
 {
     UISearchBar * searchBar;
     NSArray * resultSearch;
+    
+    NSUInteger arraySize;
 }
 
 -(BOOL)searchBar:(UISearchBar *)searchBar shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
@@ -61,6 +63,8 @@
 
     _data = [NSMutableArray arrayWithObjects:[[Restaurant alloc] initWithCode:@"1" name:@"KFC"], [[Restaurant alloc] initWithCode:@"2" name:@"McDonalds"], [[Restaurant alloc] initWithCode:@"3" name:@"BurgerKing"], [[Restaurant alloc] initWithCode:@"4" name:@"CurryWurst"], nil];
     
+    //[self getAllData];
+    
     [self.view addSubview:_table];
     _allButton = [[[AllRestaurantButton alloc] init] autorelease];
     _allButton.frame = CGRectMake(0, self.view.bounds.size.height * 0.75, self.view.bounds.size.width * 0.5, self.view.bounds.size.height * 0.14);
@@ -81,6 +85,9 @@
     [searchBar setDelegate:self];
     _table.tableHeaderView = searchBar;
     
+    /** the most shitty code */
+    arraySize = [_data count];
+    
     
     [_table setDelegate:self];
     [_table setDataSource:self];
@@ -91,15 +98,32 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (NSString *) applicationDocumentsDirectory
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *basePath = ([paths count] > 0) ? [paths objectAtIndex:0] : nil;
+    return basePath;
+}
+
+- (void)getAllData
+{
+    NSString *documents = [self applicationDocumentsDirectory];
+    NSString *dbPath = [documents stringByAppendingPathComponent:@"default.db"];
+    
+    SQLManager * localManager = [[SQLManager alloc] initWithFileName:dbPath];
+    _data = [localManager getFields:@"name" inTable:@"ch_restaurant" forPrimeKey:@"id"];
+}
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if(_table == self.searchDisplayController.searchResultsTableView)
+    if(resultSearch.count > 0 )
     {
         return [resultSearch count];
     }
     else
     {
-        return [_data count];
+        //return [_data count];
+        return arraySize;
     }
 }
 
@@ -113,7 +137,6 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     _data = [NSMutableArray arrayWithObjects:[[Restaurant alloc] initWithCode:@"1" name:@"KFC"], [[Restaurant alloc] initWithCode:@"2" name:@"McDonalds"], [[Restaurant alloc] initWithCode:@"3" name:@"BurgerKing"], [[Restaurant alloc] initWithCode:@"4" name:@"CurryWurst"], nil];
-    NSLog(@"UPDATED");
     static NSString * cellIdentifier = @"MyCell";
     
     RestCell * cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
