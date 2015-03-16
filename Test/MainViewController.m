@@ -61,9 +61,9 @@
     _table = [[MainTableView alloc] init];
     _table.frame = self.view.bounds;
 
-    _data = [NSMutableArray arrayWithObjects:[[Restaurant alloc] initWithCode:@"1" name:@"KFC"], [[Restaurant alloc] initWithCode:@"2" name:@"McDonalds"], [[Restaurant alloc] initWithCode:@"3" name:@"BurgerKing"], [[Restaurant alloc] initWithCode:@"4" name:@"CurryWurst"], nil];
+    //_data = [NSMutableArray arrayWithObjects:[[Restaurant alloc] initWithCode:@"1" name:@"KFC"], [[Restaurant alloc] initWithCode:@"2" name:@"McDonalds"], [[Restaurant alloc] initWithCode:@"3" name:@"BurgerKing"], [[Restaurant alloc] initWithCode:@"4" name:@"CurryWurst"], nil];
     
-    //[self getAllData];
+    [self getAllData];
     
     [self.view addSubview:_table];
     _allButton = [[[AllRestaurantButton alloc] init] autorelease];
