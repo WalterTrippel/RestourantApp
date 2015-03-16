@@ -111,7 +111,7 @@
     NSString *dbPath = [documents stringByAppendingPathComponent:@"default.db"];
     
     SQLManager * localManager = [[SQLManager alloc] initWithFileName:dbPath];
-    _data = [localManager getFields:@"name" inTable:@"ch_restaurant" forPrimeKey:@"id"];
+    _data = [localManager getFields:@"*" inTable:@"ch_restaurant" forPrimeKey:@"id"];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
